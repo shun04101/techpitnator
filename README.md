@@ -1,24 +1,27 @@
-# README
+# techpitnator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+Akinator風の人物特定エンジン
 
-Things you may want to cover:
+### サイトテーマ
+人物・キャラクターを特定するプログラムエンジン
 
-* Ruby version
+### テーマを選んだ理由
+- Ruby on Railsの基礎学習としてCRUDアプリケーションの制作を行う。
+- Akinator風の条件を絞り込みながら人物・キャラクターを特定するプログラムエンジンを題材にして「絞り込み」を学びます。
 
-* System dependencies
+### 機能
+※随時更新予定
 
-* Configuration
+## 設計書
+※随時追加予定
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+※随時追加予定
