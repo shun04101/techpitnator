@@ -1,8 +1,51 @@
 
 <div id="main">
-  <div>
-    <div>
+  <div class="row mt-3">
+    <div class="col-12">
       あなたが思った漫画を当ててみせましょう！<br/>
+      下記漫画から一つを頭に思い描いてください。<br/>
+      準備ができたらゲームを始めてください。
     </div>
   </div>
+  <%#= render "comics/list" %>
+
+  <div id = "comics_list">
+    <p>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+        漫画候補一覧はこちら
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">タイトル</th>
+            <th scope="col">ジャンル</th>
+            <th scope="col">連載</th>
+            <th scope="col">連載期間</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Comic.all.each do | comic | %>
+            <tr>
+              <td><%= comic.title %></td>
+              <td><%= comic.genre %></td>
+              <td><%= comic.publisher %></td>
+              <td><%= comic.serialization_started_year %> ~ <%= comic.serialization_end_year %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= form_with url: games_path, local:true do |f| %>
+    <div class="row mt-3">
+      <div class="col-6 offset-3">
+        <%= f.submit "はじめる", {class: 'btn btn-lg btn-primary btn-block'} %>
+      </div>
+   </div>
+  <% end %>
+
+
 </div>

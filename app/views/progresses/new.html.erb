@@ -1,0 +1,39 @@
+
+<div id="main">
+  <div class="row">
+    <div class="col-12">
+      <div class="card bg-light">
+        <div class="card-header">質問</div>
+        <div class="card-body">
+          <p class="card-text"><%= @question.content %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= form_with model: @progress, url: game_progresses_path, local:true do |f| %>
+    <%= f.hidden_field :question_id, :value => @question.id %>
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="form-check form-check-inline mr-5">
+          <%= f.radio_button :answer, :positive, {class: "form-check-input"} %>
+          <%= f.label :answer_positive, "はい", {class: "form-check-label"} %>
+        </div>
+        <div class="form-check form-check-inline mr-5">
+          <%= f.radio_button :answer, :unknown, {class: "form-check-input"} %>
+          <%= f.label :answer_unknown, "わからない", {class: "form-check-label"} %>
+        </div>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :answer, :negative, {class: "form-check-input"} %>
+          <%= f.label :answer_negative, "いいえ", {class: "form-check-label"} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-6 offset-3">
+        <%= f.submit("回答を送信", class:"btn btn-lg btn btn-outline-info btn-block") %>
+      </div>
+    </div>
+  <% end %>
+</div>

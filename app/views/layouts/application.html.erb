@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container text-center">
+
+      <header class="row mb-3">
+        <div class="col-12">
+          <%= image_tag 'title.png', {width: 200} %>
+          <br>
+          <%= image_tag 'techpitnator.png', {width: 200} %>
+        </div>
+      </header>
+
+      <main class="row">
+        <div class="col-8 offset-2">
+          <%= yield %>
+        </div>
+      </main>
+
+    </div>
   </body>
 </html>
