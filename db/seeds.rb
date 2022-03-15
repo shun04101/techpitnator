@@ -54,6 +54,15 @@ case ENV['SECTION']
       { content: '連載は週刊少年ジャンプ？', algorithm: 'publisher_match', eval_value: '週刊少年ジャンプ' },
       { content: '海賊が関係してますか？', algorithm: 'genre_match', eval_value: '海賊' }
     ]
+  when "4-2"
+    comics = [
+      { title: 'ワンピース ONE PIECE', genre: '少年漫画 海賊 冒険ファンタジー バトル', serialization_started_year: 1997, serialization_end_year: nil, publisher: '週刊少年ジャンプ' },
+      { title: 'ドラゴンボール', genre: '少年漫画 冒険 バトル 格闘技 SF漫画 ファンタジー', serialization_started_year: 1984, serialization_end_year: 1995, publisher: '週刊少年ジャンプ' },
+    ]
+
+    questions = [
+      { content: '連載終了してますか？', algorithm: 'serialization_end', eval_value: nil },
+    ]
 end
 
 

@@ -1,0 +1,25 @@
+
+<div id="main">
+  <%= form_with url: game_path, method: :patch, local:true do |f| %>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card bg-light">
+          <div class="card-header">あなたがイメージした漫画はこれですね？</div>
+          <div class="card-body">
+            <p class="card-text"><%= @comic.title %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-6">
+        <%= f.submit("違います", name: :incorrect, class: "btn btn-lg btn btn-outline-info btn-block") %>
+      </div>
+      <div class="col-6">
+        <%= f.submit("正解です", name: :correct, class: "btn btn-lg btn btn-outline-info btn-block") %>
+      </div>
+    </div>
+<% end %>
+</div>

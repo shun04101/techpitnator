@@ -13,6 +13,14 @@ class ProgressesController < ApplicationController
     progress = current_game.progresses.new(create_params)
     progress.assign_sequence
     progress.save!
+    # 絞り込みを実行
+    @extract_comics = ExtractionAlgorithm.new(current_game).compute
+
+    # 絞り込み結果が1件の場合、チャレンジ(正解を当てにいく)へ遷移
+    if @extract_comics.count == 1
+      redirect_to challenge_game_path(current_game)
+      return
+    end
 
     next_question = Question.next_question(current_game)
     if next_question.blank?
