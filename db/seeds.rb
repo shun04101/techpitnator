@@ -73,6 +73,52 @@ case ENV['SECTION']
       { content: '連載終了してますか？', algorithm: 'serialization_end', eval_value: nil },
       { content: '連載は週刊少年ジャンプ？', algorithm: 'publisher_match', eval_value: '週刊少年ジャンプ' },
     ]
+  when "5-1"
+    comics = [
+      { title: 'ワンピース ONE PIECE', genre: '少年漫画 海賊 冒険ファンタジー バトル', serialization_started_year: 1997, serialization_end_year: nil, publisher: '週刊少年ジャンプ' },
+      { title: 'ゴルゴ13', genre: 'ハードボイルド 劇画', serialization_started_year: 1968, serialization_end_year: nil, publisher: 'ビッグコミック' },
+    ]
+
+    questions = [
+      { content: '海賊が関係してますか？', algorithm: 'genre_match', eval_value: '海賊' }
+    ]
+  when "6-1"
+    comics = [
+      { title: 'ワンピース ONE PIECE', genre: '少年漫画 海賊 冒険ファンタジー バトル', serialization_started_year: 1997, serialization_end_year: nil, publisher: '週刊少年ジャンプ' },
+      { title: 'ゴルゴ13', genre: 'ハードボイルド 劇画', serialization_started_year: 1968, serialization_end_year: nil, publisher: 'ビッグコミック' },
+    ]
+
+    questions = [
+      { content: '連載は週刊少年ジャンプ？', algorithm: 'publisher_match', eval_value: '週刊少年ジャンプ' }
+    ]
+
+
+  when "7"
+    questions = [
+      { content: '連載終了してますか？', algorithm: 'serialization_end', eval_value: nil },
+      { content: '連載は週刊少年ジャンプ？', algorithm: 'publisher_match', eval_value: '週刊少年ジャンプ' },
+      { content: '連載は週刊少年サンデー？', algorithm: 'publisher_match', eval_value: '週刊少年サンデー' },
+      { content: '連載は週刊少年マガジン？', algorithm: 'publisher_match', eval_value: '週刊少年マガジン' },
+      { content: '少年漫画？', algorithm: 'genre_match', eval_value: '少年漫画' },
+      { content: '時代劇？', algorithm: 'genre_match', eval_value: '時代劇' },
+      { content: 'ファンタジー？', algorithm: 'genre_match', eval_value: 'ファンタジー' },
+      { content: 'SF？', algorithm: 'genre_match', eval_value: 'SF' },
+      { content: 'バトルシーンがありますか？', algorithm: 'genre_match', eval_value: 'バトル' },
+      { content: '主人公は推理しますか？', algorithm: 'genre_match', eval_value: '推理' },
+      { content: 'ダークな世界観がある漫画ですか？', algorithm: 'genre_match', eval_value: 'ダーク' },
+      { content: 'サッカーしますか？', algorithm: 'genre_match', eval_value: 'サッカー' },
+      { content: 'バスケ漫画ですか？', algorithm: 'genre_match', eval_value: 'バスケットボール' },
+      { content: 'グルメ漫画ですか？', algorithm: 'genre_match', eval_value: 'グルメ' },
+      { content: 'ギャグ要素がありますか？', algorithm: 'genre_match', eval_value: 'ギャグ' },
+      { content: '剣で戦いますか？', algorithm: 'genre_match', eval_value: '剣' },
+      { content: '家庭的ですか？', algorithm: 'genre_match', eval_value: '家庭' },
+      { content: 'スポーツ系ですか？', algorithm: 'genre_match', eval_value: 'スポーツ' },
+      { content: 'ハードボイルドですか？', algorithm: 'genre_match', eval_value: 'ハードボイルド' },
+      { content: '舞台は中国ですか？', algorithm: 'genre_match', eval_value: '中国' },
+      { content: '学園ものですか？', algorithm: 'genre_match', eval_value: '学園' },
+      { content: '海賊が関係してますか？', algorithm: 'genre_match', eval_value: '海賊' }
+    ]
+
 end
 
 

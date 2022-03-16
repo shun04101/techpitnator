@@ -14,12 +14,15 @@ class ExtractionAlgorithm
   def compute
     progresses = @game.progresses
     progresses.each do |progress|
-      # question
       question = progress.question
 
       case question.algorithm
+        when 'genre_match'
+          genre_match(progress)
         when 'serialization_end'
           serialization_end?(progress)
+        when 'publisher_match'
+          publisher_match(progress)
         else
           raise Exception('Invalid algorithm. --> ' + question.algorithm.to_s)
       end
@@ -33,7 +36,6 @@ class ExtractionAlgorithm
   private
 
   def serialization_end?(progress)
-
     if progress.positive_answer?
       @query = @query.where.not("comics.serialization_end_year is null")
     end
@@ -41,11 +43,28 @@ class ExtractionAlgorithm
     if progress.negative_answer?
       @query = @query.where("comics.serialization_end_year is null")
     end
-
   end
 
 
+  def genre_match(progress)
+    if progress.positive_answer?
+      @query = @query.where("comics.genre like ?", "%#{progress.question.eval_value}%")
+    end
+
+    if progress.negative_answer?
+      @query = @query.where.not("comics.genre like ?", "%#{progress.question.eval_value}%")
+    end
+  end
 
 
+  def publisher_match(progress)
+     if progress.positive_answer?
+        @query = @query.where("comics.publisher like ?", "%#{progress.question.eval_value}%")
+     end
+
+     if progress.negative_answer?
+        @query = @query.where.not("comics.publisher like ?", "%#{progress.question.eval_value}%")
+     end
+  end
 
 end
